@@ -1,0 +1,6 @@
+FROM python:alpine3.10
+COPY requirements.txt /
+RUN pip3 install -r /requirements.txt
+COPY . .
+WORKDIR /
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "notejam.wsgi"]`
